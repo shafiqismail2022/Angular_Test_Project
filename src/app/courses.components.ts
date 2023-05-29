@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { courseService } from "./course.service";
 @Component({
     selector:'angular',
     template:`<h2>{{getTitle()}}</h2>
@@ -10,7 +11,11 @@ import { Component } from "@angular/core";
 })
 export class CourseComponents{
 title:String='Hellow every one';
-courses:String[]=['Physics','Chemistry','Mathamatics'];
+courses:String[]=[];
+constructor(serv: courseService ){ //dependency
+    // let serv = new courseService();
+    this.courses=serv.getcourse()
+}
 getTitle():string {
 return "This is just a test";    
 }
