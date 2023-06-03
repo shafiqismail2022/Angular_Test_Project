@@ -1,5 +1,5 @@
 import { Pipe, PipeDecorator, PipeTransform } from "@angular/core";
-import { pipe } from "rxjs";
+// import { pipe } from "rxjs";
 @Pipe({
     name:'summary'
 }
