@@ -3,34 +3,37 @@ import { courseService } from "./course.service";
 import { SummaryPipe } from "./summary.pipe";
 @Component({
     selector:'angular',
-    template:`<h2>{{getTitle()}}</h2>
-    <!-- <ul>
-    <li *ngFor="let course of courses">{{ course }}</li> // Dom manipulation
-    </ul> -->
-    <!-- <img src="{{imgUrl}}" alt=""> // String Interpolation is used for text-->
-    <img [src]="imgUrl" alt="People Laughing">   <!-- attribute(property) binding -->
+    templateUrl: './courses.component.html'
+//     template:`<h2>{{getTitle()}}</h2>
+//     <!-- <ul>
+//     <li *ngFor="let course of courses">{{ course }}</li> // Dom manipulation
+//     </ul> -->
+//     <!-- <img src="{{imgUrl}}" alt=""> // String Interpolation is used for text-->
+//     <img [src]="imgUrl" alt="People Laughing">   <!-- attribute(property) binding -->
 
-    <!-- <table>
-        <tr><td [attr.colspan]="colspan"></td></tr> // attribute Not essentail to be Dom element 
-    </table> -->
-    <div (click)='onClickDiv($event)'>
-        <button (click)='onClick($event)'class="btn btn-primary"[class.active]='isActive'>Save</button></div> <!---class binding with attribute- and event binding with $event Object-->
-    <!-- <button [style.backgroundColor]="isActive?'blue':'black'"></button> // Style Binding -->
-    <!-- <input #email (keyup.enter)='onKeyUp(email.value)'type="text">   //template variable email-->
-    <input [(ngModel)]="email" (keyup.enter)='onKeyUp()' type="text"><br>  <!--Two way Binding using ngModel for capturing input-->
-   {{coUrse.title| uppercase|lowercase}} <br> <!-- case pipes-->
-   {{coUrse.rating|number:'2.1-3'}} <br> <!--number format with integer followed by min and max decimal-->
-   {{coUrse.students|number}} <br>
-   {{coUrse.price|currency:'AUD':'Tsh':'3.2-3'}} <br> 
-   {{coUrse.releaseDate|date:"mediumDate"}} <br>
-   {{text|summary:10}}
+//     <!-- <table>
+//         <tr><td [attr.colspan]="colspan"></td></tr> // attribute Not essentail to be Dom element 
+//     </table> -->
+//     <div (click)='onClickDiv($event)'>
+//         <button (click)='onClick($event)'class="btn btn-primary"[class.active]='isActive'>Save</button></div> <!---class binding with attribute- and event binding with $event Object-->
+//     <!-- <button [style.backgroundColor]="isActive?'blue':'black'"></button> // Style Binding -->
+//     <!-- <input #email (keyup.enter)='onKeyUp(email.value)'type="text">   //template variable email-->
+//     <input [(ngModel)]="email" (keyup.enter)='onKeyUp()' type="text"><br>  <!--Two way Binding using ngModel for capturing input-->
+//    {{coUrse.title| uppercase|lowercase}} <br> <!-- case pipes-->
+//    {{coUrse.rating|number:'2.1-3'}} <br> <!--number format with integer followed by min and max decimal-->
+//    {{coUrse.students|number}} <br>
+//    {{coUrse.price|currency:'AUD':'Tsh':'3.2-3'}} <br> 
+//    {{coUrse.releaseDate|date:"mediumDate"}} <br>
+//    {{text|summary:10}}
 
-      `,
+//       `,
 })
 export class CourseComponents implements OnInit{
     
-    @Input() isFavorite: boolean=false;
-
+    @Input('is-favorite') isFavorite: boolean=false;//Nick naming out input for use of another properties
+onChange():void{
+    this.isFavorite=!this.isFavorite;
+}
     coUrse:any={
 title:"The Complete Angular Course",
 rating:"4.9745",
