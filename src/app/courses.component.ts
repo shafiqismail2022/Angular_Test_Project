@@ -30,9 +30,9 @@ import { SummaryPipe } from "./summary.pipe";
 })
 export class CourseComponents implements OnInit{
     
-    @Input('is-favorite') isFavorite: boolean=false;//Nick naming out input for use of another properties
+    @Input() quotes:String="";//Nick naming out input for use of another properties
 onChange():void{
-    this.isFavorite=!this.isFavorite;
+    // this.isFavorite=!this.isFavorite;
 }
     coUrse:any={
 title:"The Complete Angular Course",
@@ -49,6 +49,7 @@ releaseDate:new Date(2023,3,1)
     onKeyUp():void{
         console.log(this.email)
     }
+
     // onKeyUp(email:any):void{
 
     //     // if($event.keyCode===13){

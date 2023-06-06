@@ -6,15 +6,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CourseComponents } from './courses.components';
 import { courseService } from './course.service';
 import { SummaryPipe } from './summary.pipe';
+import { CourseComponents } from './courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseComponents,
-    SummaryPipe
+    SummaryPipe,
+    CourseComponents
   ],
   imports: [
     CommonModule,
